@@ -1,0 +1,16 @@
+#!/bin/bash
+
+grep \''partialFilterExpression': SON([('isDeleted', SON([('$eq', False)]))])}\' non-uniq.xlsx| wc -l
+#grep \$and non-uniq.xlsx
+#grep and non-uniq.xlsx
+#grep and non-uniq.xlsx
+grep and non-uniq.csv > nu.csv
+grep \$and nu.csv
+grep \$and nu.csv | wc -l
+grep \$and nu.csv > and.csv
+grep -o -n 'SON' and.csv > sand.csv
+#grep -o -n 'SON' and.csv | less
+#grep 'SON' and.csv | uniq -c | less
+grep 'SON' sand.csv | uniq -c | less
+
+# Build distribution
