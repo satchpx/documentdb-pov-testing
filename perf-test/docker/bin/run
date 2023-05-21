@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+LOGFILE='/tmp/perf.out'
+BENCHRUN='benchrun.py'
+CMD='python benchrun.py'
+# Change this endpoint, or make it passable param @TODO
+HOST='mongodb.mongodb'
+PORT='27017'
+USER='root'
+PASSWD='Password1'
+
+printUsage() {
+    cat <<EOUSAGE
+Usage:
+    run
+      -m <host> [Default: mongo.mongo]
+      -p <port> [Default: 27017]
+      -u <user> [Default: root]
+      -s <password> [Default: Password1]
+EOUSAGE
+}
+
+# COMMON VARS
+while getopts "h?:m:p:u:s:" opt; do
+    case "$opt" in
+    h|\?)
+        printUsage
+        exit 0
+        ;;
+    m)  HOST=$OPTARG
+        ;;
+    p)  PORT=$OPTARG
+        ;;
+    u)  USER=$OPTARG
+        ;;
+    s)  PASSWD=$OPTARG
+        ;;
+    :)
+        echo "[ERROR] Option -$OPTARG requires an argument." >&2
+        exit 1
+        ;;
+    default)
+       printUsage
+       exit 1
+    esac
+done
+
+cd /mongo-perf
+#${CMD} --host ${HOST} --port ${PORT} -u ${USER} -p ${PASSWD} -f testcases/simple_insert.js -t 1 > ${LOGFILE}
+${CMD} --host ${HOST} --port ${PORT} -u ${USER} -p ${PASSWD} -f testcases/* -t 4 --includeFilter insert update --trialTime 10 > ${LOGFILE}
+#${CMD} --host ${HOST} --port ${PORT} -u ${USER} -p ${PASSWD} -f testcases/* -t 1 2 4 --includeFilter insert update --includeFilter core --trialTime 10 > ${LOGFILE}
+
+# pretty print the analyzed results
+python3 analyze.py
