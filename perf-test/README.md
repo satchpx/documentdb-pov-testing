@@ -1,4 +1,4 @@
-# Load Testing DocumentDB using Locust running on Amazon ECS
+# Performance Testing DocumentDB using mongo-perf running on Amazon EKS
 
 The architecture below demonstrates a load testing setup to test Amazon DocumentDB using mongo-perf on Amazon Elastic Kubernetes Service (EKS).
 ### @TODO: Use Fargate Spot for the mongo-perf pod
