@@ -18,4 +18,5 @@ spec:
       - name: mongodb-perf-tester
         image: satchpx/mongodb-perf-tester:0.1
         imagePullPolicy: Always
-        command: [ "/mongo-perf/run" ]
+        #command: [ "/mongo-perf/run" ]
+        command: [ "sleep infinity" ]

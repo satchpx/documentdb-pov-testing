@@ -11,6 +11,11 @@ Follow instructions [here](https://docs.aws.amazon.com/documentdb/latest/develop
 ## Tool
 This test uses a dockerized version of [mongo-perf](https://github.com/mongodb/mongo-perf) which is also rolled into a kubernetes deployment.
 
+## (Optional) If you wish to build the image and push it to ECR
+1. (Create a repository)[https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-create.html]
+1. git clone https://github.com/satchpx/documentdb-pov-testing.git
+1. cd documentdb-pov-testing/perf-test/docker
+1. Follow instructions [here](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html) to authenticate with your repository -> build image -> push to ECR
 ## Deploy
 To run a load test/ Stress test:
 ```
