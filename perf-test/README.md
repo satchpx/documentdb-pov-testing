@@ -6,6 +6,8 @@ The architecture below demonstrates a load testing setup to test Amazon Document
 ## Architecture
 ![architecture](imgs/mongo-perf-eks.png)
 
+## Create DocumentDB Cluster
+Follow instructions [here](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-create.html) to create a DocumentDB cluster.
 ## Tool
 This test uses a dockerized version of [mongo-perf](https://github.com/mongodb/mongo-perf) which is also rolled into a kubernetes deployment.
 
