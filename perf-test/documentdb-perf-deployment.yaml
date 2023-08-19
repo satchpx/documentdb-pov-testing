@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: documentdb-perf-tester
+  labels:
+    app: documentdb-perf-tester
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: documentdb-perf-tester
+  template:
+    metadata:
+      labels:
+        app: documentdb-perf-tester
+    spec:
+      containers:
+      - name: documentdb-perf-tester
+        image: 111122223333.dkr.ecr.us-west-2.amazonaws.com/documentdb-perf-tester:1.0
+        imagePullPolicy: Always
+        #command: [ "/mongo-perf/run" ]
+        command: [ "/usr/bin/sleep", "infinity" ]
