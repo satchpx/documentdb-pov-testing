@@ -16,6 +16,7 @@ spec:
     spec:
       containers:
       - name: documentdb-perf-tester
+#        image: satchpx/mongodb-perf-tester:0.1
         image: 111122223333.dkr.ecr.us-west-2.amazonaws.com/documentdb-perf-tester:1.0
         imagePullPolicy: Always
         #command: [ "/mongo-perf/run" ]
