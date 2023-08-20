@@ -3,7 +3,7 @@
 The architecture below demonstrates a load testing setup to test Amazon DocumentDB using Locust on Amazon Elastic Container Service (ECS). It shall use Fargate with Spot for cost effective testing.
 
 ## Architecture
-![architecture](imgs/2022-Locust.drawio.png)
+![architecture](imgs/documentdb-load-test.png)
 
 We deploy Locust with distributed mode, hence two ECS services - Locust master and worker service.
 
